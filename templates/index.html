@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI Assistant 😎</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=3">
+</head>
+<body>
+  <!-- Header -->
+  <header class="topbar">
+    <div class="brand-title">Prajwal's AI Assistant</div>
+    <div class="brand-sub">Helpful • Respectful • Brilliant</div>
+  </header>
+
+  <!-- Fullscreen Chat -->
+  <main class="chat-frame">
+    <!-- Toolbar -->
+    <div class="chat-toolbar">
+      <button id="clearBtn" title="Clear chat history">🗑️ Clear Chat</button>
+    </div>
+
+    <!-- Chat Window -->
+    <div id="chat" class="chat"></div>
+
+    <!-- Composer -->
+    <div class="composer">
+      <textarea id="input" placeholder="Type a message and press Enter — Shift+Enter for newline"></textarea>
+      <button id="sendBtn" title="Send message">Send</button>
+    </div>
+
+    <!-- Footer -->
+    <div class="credits">Made with 💝 by <b>-Prajwal Bhunte-</b></div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}?v=3"></script>
+</body>
+</html>
