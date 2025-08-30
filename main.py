@@ -29,20 +29,18 @@ def chat():
         return jsonify({"reply": "Please write something to start the chat."})
 
     try:
-        print("🔹 Sending to Gemini:", user_message)  # Debug log
+        print("🔹 Sending to Gemini:", user_message)
         resp = model.generate_content(user_message)
-        print("🔹 Gemini raw response:", resp)  # Debug log
+        print("🔹 Gemini raw response:", resp)
 
-        # Safely extract reply text
         reply_text = getattr(resp, "output_text", None) or getattr(resp, "text", None) or str(resp)
-
         return jsonify({"reply": reply_text})
 
     except Exception as e:
-        print("❌ Gemini error:", e)  # Debug error log
+        print("❌ Gemini error:", e)
         return jsonify({"reply": f"⚠️ Error: {e}"})
 
 # -------------------- Run Flask --------------------
 if __name__ == "__main__":
-    # debug=True enables auto-reload and detailed errors
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT or fallback to 5000 locally
+    app.run(host="0.0.0.0", port=port)        # Bind to all interfaces
